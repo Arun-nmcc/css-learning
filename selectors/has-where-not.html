@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Classes: :not(), :where(), :has()</title>
+    <style>
+        /* :not() Example: Apply to all paragraphs except those with class .exclude */
+        p:not(.exclude) {
+            color: blue;
+        }
+
+        /* :where() Example: Apply to all headings without increasing specificity */
+        :where(h1, h2, h3) {
+            font-family: Arial, sans-serif;
+            color: darkblue;
+        }
+
+        /* :has() Example: Apply border to divs that contain an image */
+        div:has(img) {
+            border: 2px solid red;
+        }
+
+        .exclude {
+            color: red;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+        }
+
+        /* Styling the div */
+        div {
+            padding: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Pseudo-Classes: :not(), :where(), :has()</h1>
+
+    <p>This paragraph is blue because it does not have the class .exclude.</p>
+    <p class="exclude">This paragraph is red because it has the class .exclude.</p>
+
+    <div>
+        This div has no image, so no border.
+    </div>
+    
+    <div>
+        <img src="https://via.placeholder.com/100" alt="Placeholder Image">
+        This div has an image, so it gets a red border around it.
+    </div>
+
+    <h2>Example Heading 1</h2>
+    <h3>Example Heading 2</h3>
+
+</body>
+</html>

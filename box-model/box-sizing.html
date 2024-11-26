@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Sizing Example</title>
+    <style>
+        /* Cheat sheet for box-sizing */
+        /*
+            1. content-box (default):
+               - The width and height apply only to the content.
+               - Padding and border are added *outside* the content, increasing the overall size of the element.
+               - Example: If width = 200px, padding = 20px, border = 10px, the total width = 200 + 20*2 + 10*2 = 260px.
+               - Advantage: Useful for precise content width but requires manual calculations for total element size.
+
+            2. border-box:
+               - The width and height include content, padding, and border.
+               - Example: If width = 200px, padding = 20px, border = 10px, the total width remains 200px.
+               - Advantage: Simplifies layouts by ensuring elements stay within specified dimensions.
+        */
+
+
+        /* Why Use *::before and *::after?
+        Pseudo-elements are not part of the DOM tree:
+        so we need to give explicitly 
+        
+        */
+
+
+        /* Reset box-sizing for consistency */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box; /* Ensures all elements use border-box */
+            margin: 0; /* Resets default margin */
+            padding: 0; /* Resets default padding */
+        }
+
+        /* Example: content-box */
+        .content-box-example {
+            box-sizing: content-box; /* Default behavior */
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 10px solid red;
+            background-color: lightblue;
+            margin: 20px auto;
+            color: black;
+        }
+
+        /* Example: border-box */
+        .border-box-example {
+            box-sizing: border-box; /* Includes padding and border within width/height */
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 10px solid green;
+            background-color: lightcoral;
+            margin: 20px auto;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Box Sizing Examples</h1>
+    <p>The two boxes below demonstrate the difference between <code>content-box</code> and <code>border-box</code>:</p>
+
+    <div class="content-box-example">
+        This is a <strong>content-box</strong> example. The total width includes content + padding + border.
+    </div>
+
+    <div class="border-box-example">
+        This is a <strong>border-box</strong> example. The total width stays within the specified size.
+    </div>
+
+    <p>Note: With the global reset applied above, all elements are using <code>box-sizing: border-box</code> by default, simplifying layouts. You can still override individual elements as needed.</p>
+</body>
+</html>

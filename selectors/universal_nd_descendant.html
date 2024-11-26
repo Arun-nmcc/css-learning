@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal and Descendant Selectors</title>
+    <style>
+        /* Universal selector: applies to all elements */
+        * {
+            margin: 0; /* Removes default browser margins */
+            padding: 0; /* Removes default browser padding */
+            box-sizing: border-box; /* Ensures consistent sizing */
+            font-family: Arial, sans-serif; /* Default font for all elements */
+        }
+
+        /* Styling for <div> descendant <p> */
+        div p {
+            color: purple; /* Paragraphs inside <div> will be purple */
+            font-weight: bold; /* Makes the text bold */
+            margin-bottom: 10px; /* Adds spacing below each paragraph */
+        }
+
+        /* For nested elements inside <p> */
+        p * {
+            color: blue; /* Nested elements inside <p> (e.g., <span>) will be blue */
+            font-style: italic; /* Makes them italic */
+        }
+
+        /* Styling for <h1> for visual hierarchy */
+        h1 {
+            color: darkgreen;
+            margin-bottom: 20px;
+            text-align: center; /* Centers the heading */
+        }
+
+        /* Styling for footer <p> */
+        footer p {
+            color: gray;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Universal and Descendant Selectors Example</h1>
+    
+    <p>This paragraph is outside any div and has no special styling.</p>
+    
+    <div>
+        <p>This is a paragraph inside the div. It will be purple.</p>
+        <p>
+            Another paragraph inside the div with <span>nested span</span>. 
+            The span text will follow universal styling.
+        </p>
+    </div>
+    
+    <footer>
+        <p>This footer paragraph is outside the div and won't be purple.</p>
+    </footer>
+</body>
+</html>

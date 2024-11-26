@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Inline Elements Example</title>
+    <style>
+        /* Universal outline for analysis */
+        * {
+            outline: 1px dashed red; /* Outline to visualize element boundaries */
+        }
+
+        /* Styling for inline elements */
+        .inline-example {
+            border: 1px solid blue; /* Visualize the content area of the element */
+            padding: 5px; /* Padding works but won't push other elements away */
+            background-color: lightyellow;
+        }
+
+        .inline-example-large {
+            font-size: 24px; /* Font size changes the size of the content area */
+        }
+
+        .inline-height {
+            height: 50px; /* This will NOT affect the height of inline elements */
+        }
+
+        .inline-margin {
+            margin: 10px; /* Margins are ignored for inline elements */
+        }
+    </style>
+</head>
+<body>
+    <h1>Inline Elements Cheat Sheet</h1>
+    <p>
+        Inline elements do not break onto a new line and only take up as much width as their content. 
+        They are commonly used for styling small portions of text or inline graphics.
+    </p>
+
+    <h2>Default Inline Elements</h2>
+    <p class="inline-example">
+        This is a <code>&lt;span&gt;</code> element, a common inline element.
+        <!-- Inline elements stack horizontally and do not force a new line -->
+    </p>
+    <a href="#" class="inline-example">This is a link (<code>&lt;a&gt;</code>).</a>
+    <strong class="inline-example">This is bold text (<code>&lt;strong&gt;</code>).</strong>
+    <em class="inline-example">This is italic text (<code>&lt;em&gt;</code>).</em>
+    <code class="inline-example">This is inline code (<code>&lt;code&gt;</code>).</code>
+
+    <h2>Key Characteristics</h2>
+    <p>
+        Below are some important behaviors of inline elements with visual demonstrations:
+    </p>
+    
+    <ul>
+        <li>
+            <strong>Height:</strong> Inline elements ignore the <code>height</code> property.
+            <span class="inline-example inline-height">Height set to 50px (ignored).</span>
+        </li>
+        <li>
+            <strong>Margin:</strong> Margins generally have no effect on inline elements.
+            <span class="inline-example inline-margin">Margin set to 10px (ignored).</span>
+        </li>
+        <li>
+            <strong>Padding:</strong> Padding works but doesn't push neighboring elements away.
+            <span class="inline-example" style="padding: 20px;">Padding set to 20px.</span>
+        </li>
+        <li>
+            <strong>Font Size:</strong> Changing font size alters the content area but may break consistency. 
+            <span class="inline-example inline-example-large">Font size set to 24px.</span>
+        </li>
+    </ul>
+
+    <h2>Why Not Recommended to Change Font Size?</h2>
+    <p>
+        Modifying <code>font-size</code> on inline elements can lead to inconsistencies in text flow and alignment 
+        when mixed with other elements. It’s better to apply styles to block or inline-block containers.
+    </p>
+
+    <h2>Inline Elements and Block Elements</h2>
+    <p>
+        Inline elements like <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, and <code>&lt;strong&gt;</code> 
+        should be used for styling or adding interactivity within a line of text. For structural layout, 
+        use block or inline-block elements instead.
+    </p>
+</body>
+</html>

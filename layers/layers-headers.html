@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layers with Cheat Sheet</title>
+    <style>
+        /***********************************
+         * 1. Framework Layer
+         ***********************************/
+        @layer framework {
+            /* Framework example styles (e.g., grid systems) */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+        }
+
+        /***********************************
+         * 2. Reset Layer
+         ***********************************/
+        @layer reset {
+            /* Normalize browser styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+        }
+
+        /***********************************
+         * 3. Base Layer
+         ***********************************/
+        @layer base {
+            /* Set global font and basic styles */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                line-height: 1.6;
+            }
+
+            a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+
+        /***********************************
+         * 4. Layout Layer
+         ***********************************/
+        @layer layout {
+            /* Define the layout structure */
+            .header {
+                background-color: #333;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .main-content {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .sidebar {
+                background-color: #f8f9fa;
+                padding: 20px;
+                border-radius: 5px;
+            }
+        }
+
+        /***********************************
+         * 5. Components Layer
+         ***********************************/
+        @layer components {
+            /* Reusable UI components */
+            .card {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .button:hover {
+                background-color: #0056b3;
+            }
+        }
+
+        /***********************************
+         * 6. Utilities Layer
+         ***********************************/
+        @layer utilities {
+            /* Small utility classes */
+            .text-center {
+                text-align: center;
+            }
+
+            .m-2 {
+                margin: 8px;
+            }
+
+            .p-2 {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <h1>CSS Layers Example</h1>
+        <p>Organizing CSS with layers: Framework, Reset, Base, Layout, Components, Utilities</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h2>Sidebar</h2>
+                <p>This is a sidebar section styled in the layout layer.</p>
+            </aside>
+
+            <!-- Main Article -->
+            <section>
+                <h2>Main Article</h2>
+                <div class="card">
+                    <p>This card component demonstrates the usage of the components layer.</p>
+                </div>
+                <a href="#" class="button">Learn More</a>
+            </section>
+        </div>
+    </div>
+
+    <!-- Cheat Sheet -->
+    <section class="container">
+        <h2 class="text-center">Cheat Sheet</h2>
+        <div class="card">
+            <h3>Layer Breakdown</h3>
+            <ul>
+                <li><b>Framework:</b> Includes third-party libraries or foundational CSS.</li>
+                <li><b>Reset:</b> Removes browser defaults for consistent styling.</li>
+                <li><b>Base:</b> Global styles like font-family, body background, and anchor link styles.</li>
+                <li><b>Layout:</b> Defines the overall structure, e.g., grids, headers, footers.</li>
+                <li><b>Components:</b> Reusable UI elements like buttons, cards, modals.</li>
+                <li><b>Utilities:</b> Small reusable classes for margin, padding, alignment.</li>
+            </ul>
+            <h3>Key Points</h3>
+            <ol>
+                <li><b>Order Matters:</b> Later layers override earlier ones if they have the same specificity.</li>
+                <li><b>Utility First:</b> Utility classes are applied last, allowing quick overrides.</li>
+                <li><b>Scalability:</b> This structure makes CSS maintainable and extensible.</li>
+            </ol>
+        </div>
+    </section>
+</body>
+</html>

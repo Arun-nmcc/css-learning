@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Inheritance</title>
+    <style>
+        /* CSS for demonstration */
+        body {
+            font-family: Arial, sans-serif; /* Inheritable property */
+            color: darkblue; /* Inheritable property */
+            background-color: lightgray; /* Non-inheritable property */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em; /* Non-inheritable */
+            font-family: "Courier New", Courier, monospace; /* Inheritable */
+        }
+
+        p {
+            font-size: 1.2em; /* Non-inheritable */
+        }
+
+        /* Demonstration of non-inherited properties in <a> */
+        a {
+            text-decoration: none; /* Author-defined style overrides user agent's underline */
+            color: red; /* Specific to <a> */
+        }
+
+        /* Example of overriding */
+        .override-inheritance {
+            color: green !important; /* Overrides inherited color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding CSS Inheritance</h1>
+    <p>This text inherits the <code>color</code> from the <code>body</code>, which is <span class="override-inheritance">dark blue unless overridden</span>.</p>
+    <p>Non-inheritable properties, like <code>background-color</code>, must be explicitly defined on child elements.</p>
+    <p>
+        The <code>a</code> tag below demonstrates why links don’t typically inherit <code>color</code> by default:
+    </p>
+    <a href="#">This is a link</a>
+
+    <!-- Cheatsheet on CSS Inheritance -->
+    <!-- 
+        ## Key Points on CSS Inheritance ##
+        1. **Inheritable Properties:**
+           - font-family
+           - font-size
+           - font-style
+           - font-variant
+           - font-weight
+           - letter-spacing
+           - line-height
+           - visibility
+           - white-space
+           - color
+        2. **Non-Inheritable Properties:**
+           - Margin, padding, border, width, height, etc.
+           - Background properties (e.g., background-color)
+           - Display, position, and other box-model related properties.
+        3. **Why <a> Doesn’t Inherit Some Properties:**
+           - The user agent stylesheet often specifies styles like `color: blue` and `text-decoration: underline`.
+           - Default behavior ensures links are visually distinct for usability and accessibility.
+           - Author stylesheets override these defaults but must explicitly set inheritable styles.
+        4. **CSS Cascading Order:**
+           - User agent stylesheet: The browser’s default styles.
+           - User stylesheet: Custom styles set by the user in their browser.
+           - Author stylesheet: The styles defined in your CSS (highest priority).
+        5. **Force Inheritance:**
+           - Use `inherit` explicitly: `property: inherit;`
+           - Example: `background-color: inherit;` ensures the element inherits its parent’s background color.
+
+        ## Additional Tips ##
+        - Use `!important` to override the cascading order (use sparingly!).
+        - Check styles in browser dev tools to understand inheritance behavior.
+
+        For more details, refer to CSS documentation.
+    -->
+</body>
+</html>

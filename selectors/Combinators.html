@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Combinators Example</title>
+    <style>
+        /* Universal selector: applies to all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Styling for demonstration */
+        div {
+            border: 2px solid #333;
+            margin: 20px;
+            padding: 15px;  
+        }
+
+        section {
+            border: 2px solid #444;
+            margin-top: 10px;
+            padding: 10px;
+        }
+
+        footer {
+            border: 2px solid #555;
+            padding: 10px;
+        }
+
+        p {
+            color: black;
+        }
+
+        /* Descendant Combinator - Selects all p elements inside div (at any depth) */
+        div p {
+            color: blue; /* All <p> inside <div> will be blue */
+        }
+
+        /* Child Combinator - Selects only the direct child p of div */
+        div > p {
+            color: red; /* Only <p> directly inside <div> will be red */
+        }
+
+        
+
+        /* Subsequent-Sibling Combinator - Selects all p elements after h2 */
+        h2 ~ p {
+            color: purple; /* All <p> after <h2> will be purple */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <p>This paragraph is inside a div (Descendant combinator). It will be blue.</p>
+        <section>
+            <p>This paragraph is inside a section, inside the div. It will be blue as well (Descendant combinator).</p>
+            <p>This paragraph is inside a section, inside the div. It will also be blue.</p>
+        </section>
+        <p>This paragraph is a direct child of the div (Child combinator). It will be red.</p>
+        <footer>
+            <p>This paragraph is in the footer, inside the div but not directly (Child combinator doesn't apply here).</p>
+        </footer>
+    </div>
+
+    <h2>This is a heading (for sibling combinators)</h2>
+    <p>This is the second paragraph after the heading. It will be purple (Subsequent-sibling combinator).</p>
+    <p>This is the third paragraph after the heading. It will also be purple.</p>
+    <h6>hello</h6>
+    <p>hello world paragarm</p>
+
+</body>
+</html>

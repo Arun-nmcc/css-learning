@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Inheritance Example</title>
+  <style>
+    /* Parent element has a font color of blue and margin of 20px */
+    .parent {
+      color: blue;
+      margin: 20px;
+    }
+
+    /* Example 1: Inherit color from parent */
+    .child-inherit {
+      color: inherit;  /* Will inherit blue color from parent */
+    }
+
+    /* Example 2: Initial color reset */
+    .child-initial {
+      color: initial;  /* Will reset to the browser's default color (usually black) */
+    }
+
+    /* Example 3: Revert to default value (browser default style) */
+    .child-revert {
+      color: revert;  /* Will reset to the browser's default color */
+    }
+
+    /* Example 4: Revert to the value from the previous CSS layer */
+    .layer1 .child-revert-layer {
+      color: purple;
+    }
+
+    .layer2 .child-revert-layer {
+      color: orange;
+    }
+
+    .layer3 .child-revert-layer {
+      color: revert-layer;  /* Will reset to purple from layer1 */
+    }
+
+    /* Example 5: Unset margin (resets margin to default, and color will inherit) */
+    .child-unset {
+      color: unset;  /* Will inherit blue color */
+      margin: unset; /* Will reset margin to default (0) */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Parent element -->
+  <div class="parent">
+    <h2>Parent Element (Blue Color, 20px Margin)</h2>
+    <p>This is the parent element, which has a blue color and a 20px margin.</p>
+
+    <!-- Child 1: Inherit color from parent -->
+    <div class="child-inherit">
+      <p>This child inherits the color (blue) from the parent.</p>
+    </div>
+
+    <!-- Child 2: Reset color to browser default -->
+    <div class="child-initial">
+      <p>This child has the color reset to the default (usually black).</p>
+    </div>
+
+    <!-- Child 3: Revert to default (browser default color) -->
+    <div class="child-revert">
+      <p>This child has the color reset to the default (browser default color).</p>
+    </div>
+
+    <!-- Child 4: Revert layer to a previous value -->
+    <div class="layer1">
+      <div class="layer2">
+        <div class="layer3">
+          <div class="child-revert-layer">
+            <p>This child has color reverted to the value from the previous CSS layer (purple).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Child 5: Unset color and margin -->
+    <div class="child-unset">
+      <p>This child inherits the color (blue) and resets the margin to the default (0).</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS em and rem with Buttons</title>
+    <style>
+        /* Base font size for root */
+        html {
+            font-size: 62.5%; /* 1rem = 10px */
+        }
+
+        body {
+            font-size: 1.6rem; /* 16px */
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 2rem; /* 20px */
+        }
+
+        /* Button style using em */
+        .button-em {
+            font-size: 1.5em; /* 1.5 × 16px = 24px */
+            padding: 1.5em; /* 1.5 × 16px = 24px */
+            margin: 2em; /* 2 × 16px = 32px */
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-em:hover {
+            background-color: #45a049;
+        }
+
+        /* Button style using rem */
+        .button-rem {
+            font-size: 2rem; /* 2 × 10px = 20px */
+            padding: 2rem; /* 2 × 10px = 20px */
+            margin: 3rem; /* 3 × 10px = 30px */
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-rem:hover {
+            background-color: #1976d2;
+        }
+
+        /* Button container for side-by-side layout */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        /* Cheatsheet */
+        /*
+        CHEATSHEET:
+        1. `em` is relative to the parent font size.
+        2. `rem` is relative to the root font size (usually <html>).
+        3. In button styles:
+           - `em` for font size, padding, margin scales relative to its parent.
+           - `rem` for font size, padding, margin scales globally and remains consistent.
+        4. Example:
+           - Font size: 1.5em → 1.5 × parent font size.
+           - Padding: 1.5em → 1.5 × parent font size.
+           - Margin: 2em → 2 × parent font size.
+           - For rem, 2rem = 20px, padding = 20px, margin = 30px, globally consistent.
+        */
+    </style>
+</head>
+<body>
+    <h1>Understanding em and rem with Buttons</h1>
+    <p>This page demonstrates how `em` and `rem` affect button sizes, padding, and margins.</p>
+
+    <div class="button-container">
+        <!-- Button using em -->
+        <button class="button-em">Button with em</button>
+
+        <!-- Button using rem -->
+        <button class="button-rem">Button with rem</button>
+    </div>
+</body>
+</html>

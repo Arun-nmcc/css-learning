@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline-Block Buttons Example</title>
+    <style>
+        /* Universal outline for analysis */
+        * {
+            outline: 1px dashed red; /* Helps visualize boundaries */
+        }
+
+        /* Styles for buttons and links */
+        .btn {
+            padding: 10px 20px;
+            background-color: lightblue;
+            color: black;
+            text-decoration: none; /* Removes underline from links */
+            text-align: center;
+            border: 1px solid blue;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .block-btn {
+            display: block; /* Takes full width and stacks vertically */
+            margin-bottom: 10px;
+        }
+
+        .inline-btn {
+            display: inline; /* Stays on the same line but ignores height and margins */
+        }
+
+        .inline-block-btn {
+            display: inline-block; /* Allows proper sizing and alignment */
+            margin: 10px; /* Margin works properly */
+            height: 50px; /* Height can be set */
+            line-height: 30px; /* Aligns text vertically */
+        }
+    </style>
+</head>
+<body>
+    <h1>Inline-Block Buttons and Links</h1>
+    <p>Below are examples of buttons and links with different display styles:</p>
+
+    <h2>Block Example</h2>
+    <a href="#" class="btn block-btn">Block Link</a>
+    <button class="btn block-btn">Block Button</button>
+    <!-- These take full width and stack vertically -->
+
+    <h2>Inline Example</h2>
+    <a href="#" class="btn inline-btn">Inline Link</a>
+    <button class="btn inline-btn">Inline Button</button>
+    <!-- These are inline, but height and margins are not respected -->
+
+    <h2>Inline-Block Example</h2>
+    <a href="#" class="btn inline-block-btn">Inline-Block Link</a>
+    <button class="btn inline-block-btn">Inline-Block Button</button>
+    <a href="#" class="btn inline-block-btn">Another Inline-Block Link</a>
+    <!-- These stay on the same line, respect height, margins, and padding -->
+
+    <h2>Why Inline-Block?</h2>
+    <p>
+        <strong>Inline-Block is a perfect solution for buttons:</strong>
+        <ul>
+            <li>Keeps elements on the same line.</li>
+            <li>Respects height, width, margin, and padding.</li>
+            <li>Allows precise alignment and spacing between buttons or links.</li>
+        </ul>
+    </p>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negative Values in Box Model</title>
+    <style>
+        /* Styling for demonstration */
+        .valid-margin {
+            margin-top: -30px; /* Valid: Moves upwards into the space of the adjacent element */
+            background-color: lightcoral;
+            padding: 10px;
+            color: white;
+        }
+
+        .adjacent {
+            background-color: lightblue;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .invalid-padding {
+            padding: -10px; /* Invalid: Treated as 0 */
+            background-color: lightgreen;
+            margin-top: 20px;
+            color: black;
+        }
+
+        .invalid-border {
+            border: -5px solid black; /* Invalid: Treated as 0 */
+            background-color: lightyellow;
+            margin-top: 20px;
+        }
+
+        .invalid-width {
+            width: -100px; /* Invalid: Treated as 0 */
+            height: 50px;
+            background-color: lightgoldenrodyellow;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Negative Values in Box Model Properties</h1>
+    <p>This example demonstrates how negative values affect different box model properties:</p>
+
+    <!-- Adjacent element to demonstrate negative margin -->
+    <div class="adjacent">This is an adjacent element.</div>
+
+    <!-- Negative margin (valid) -->
+    <div class="valid-margin">
+        Valid Negative Margin: This element moves <strong>upward</strong> into the space of the adjacent element above it due to the negative margin.
+    </div>
+
+    <!-- Negative padding (invalid) -->
+    <div class="invalid-padding">
+        Invalid Negative Padding: The browser ignores negative padding, so it is treated as <strong>0</strong>.
+    </div>
+
+    <!-- Negative border (invalid) -->
+    <div class="invalid-border">
+        Invalid Negative Border: The browser ignores negative border values, so it is treated as <strong>0</strong>.
+    </div>
+
+    <!-- Negative width (invalid) -->
+    <div class="invalid-width">
+        Invalid Negative Width: The browser ignores negative width values, so it is treated as <strong>0</strong>.
+    </div>
+
+    <!-- Cheatsheet -->
+    <h2>Key Points:</h2>
+    <ul>
+        <li><strong>Negative Margin:</strong> Valid. Moves the element closer to (or overlaps with) its adjacent elements.</li>
+        <li><strong>Negative Padding:</strong> Invalid. Padding cannot have negative values; browsers treat it as <code>0</code>.</li>
+        <li><strong>Negative Border:</strong> Invalid. Border width cannot be negative; browsers treat it as <code>0</code>.</li>
+        <li><strong>Negative Width/Height:</strong> Invalid. These properties cannot have negative values; browsers treat them as <code>0</code>.</li>
+    </ul>
+
+    <h3>What Happens with Negative Margins?</h3>
+    <p>
+        A <strong>negative margin</strong> reduces the space between the element and its adjacent elements. For example:
+        <ul>
+            <li><strong>Negative margin-top:</strong> Pulls the element upward, possibly overlapping the element above.</li>
+            <li><strong>Negative margin-right:</strong> Pulls the element to the left, potentially overlapping the element to its right.</li>
+            <li><strong>Negative margin-bottom:</strong> Pulls the element upward, reducing space below.</li>
+            <li><strong>Negative margin-left:</strong> Pulls the element to the left, potentially overlapping the element to its left.</li>
+        </ul>
+    </p>
+</body>
+</html>

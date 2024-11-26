@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combining Pseudo-Classes, Pseudo-Elements, and ::first-line</title>
+    <style>
+        /* Universal selector: applies to all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Basic button styling */
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            background-color: #fff;
+            cursor: pointer;
+            position: relative; /* Required for absolute positioning of pseudo-elements */
+        }
+
+        /* Hover pseudo-class combined with ::before and ::after pseudo-elements */
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button:hover::before {
+            content: "▶ "; /* Adds a play button icon before text on hover */
+            font-size: 20px;
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        button:hover::after {
+            content: " ►"; /* Adds a trailing arrow after text on hover */
+            font-size: 20px;
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Styling for the first line of the button text */
+        button::first-line {
+            font-weight: bold; /* Makes the first line bold */
+            color: darkblue; /* Changes color of the first line */
+        }
+
+        /* Extra styling for visual clarity */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+
+    <button>Click Me to Start Something Amazing</button>
+
+</body>
+</html>

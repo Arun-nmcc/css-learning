@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS em with Deep Nesting</title>
+    <style>
+        /* Base styling */
+        body {
+            font-size: 16px; /* Root font size */
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        /* Example with multiple levels of em nesting */
+        .nested-parent {
+            font-size: 18px; /* Base font size for this section */
+            background: #ffebee;
+            padding: 1em; /* 18px */
+        }
+
+        .nested-child {
+            font-size: 1.5em; /* 27px, relative to .nested-parent (18px × 1.5) */
+            padding: 1em; /* 27px */
+            background: #ffcdd2;
+        }
+
+        .nested-grandchild {
+            font-size: 0.8em; /* 21.6px, relative to .nested-child (27px × 0.8) */
+            padding: 0.5em; /* 10.8px */
+            background: #ef9a9a;
+        }
+
+        .nested-great-grandchild {
+            font-size: 1.2em; /* 25.92px, relative to .nested-grandchild (21.6px × 1.2) */
+            padding: 0.5em; /* 12.96px */
+            background: #e57373;
+        }
+
+        /* Cheatsheet */
+        /*
+        CHEATSHEET:
+        1. `em` is relative to the font size of its parent element.
+        2. Cascading calculations:
+           - Each level inherits and computes font size based on the parent.
+        3. Example (Deep Nesting):
+           - .nested-parent: 18px
+           - .nested-child: 1.5em of 18px → 27px
+           - .nested-grandchild: 0.8em of 27px → 21.6px
+           - .nested-great-grandchild: 1.2em of 21.6px → 25.92px
+        4. Be cautious with deeply nested `em` as it can result in unintended scaling.
+        */
+    </style>
+</head>
+<body>
+    <h1>Understanding Deep Nesting with em</h1>
+    
+    <section class="nested-parent">
+        <h2>Level 1: Parent</h2>
+        <p>The parent has a font size of 18px, and its padding is 1em (18px).</p>
+
+        <div class="nested-child">
+            <h3>Level 2: Child</h3>
+            <p>
+                The child inherits the parent's font size (18px) and uses `1.5em`, 
+                resulting in a computed font size of 27px.
+            </p>
+
+            <div class="nested-grandchild">
+                <h4>Level 3: Grandchild</h4>
+                <p>
+                    The grandchild inherits the child's font size (27px) and uses `0.8em`, 
+                    resulting in a computed font size of 21.6px.
+                </p>
+
+                <div class="nested-great-grandchild">
+                    <h5>Level 4: Great-Grandchild</h5>
+                    <p>
+                        The great-grandchild inherits the grandchild's font size (21.6px) and uses `1.2em`, 
+                        resulting in a computed font size of 25.92px.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

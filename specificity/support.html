@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Specificity: vh vs svh</title>
+    <style>
+        /* Fallback for browsers that do not support svh */
+        body {
+            width: 100vh; /* Default to vh */
+        }
+
+        /* Use @supports for svh if supported */
+        @supports (width: 100svh) {
+            body {
+                width: 100svh; /* Use svh when supported */
+            }
+        }
+
+        /* Styling for visualization */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+        }
+
+        .info {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Difference visualization */
+        .viewport-box {
+            height: 50vh;
+            background-color: salmon;
+            text-align: center;
+            line-height: 50vh;
+            color: white;
+            font-weight: bold;
+        }
+
+        .small-viewport-box {
+            height: 50svh;
+            background-color: darkgreen;
+            text-align: center;
+            line-height: 50svh;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h1>CSS Specificity: vh vs svh</h1>
+        <p>
+            <strong>Difference between vh and svh:</strong><br>
+            - <code>vh</code> stands for "Viewport Height" and represents 1% of the height of the viewport, including areas hidden by browser interfaces like the address bar.<br>
+            - <code>svh</code> (Small Viewport Height) represents 1% of the height of the **visual viewport**, excluding the browser UI such as the address bar. It adapts better in modern mobile browsers when the UI resizes dynamically.
+        </p>
+        <p>
+            <strong>Fallback:</strong><br>
+            If a browser does not support <code>svh</code>, we can use <code>vh</code> as a fallback using <code>@supports</code>.
+        </p>
+    </div>
+
+    <!-- Difference visualization -->
+    <div class="viewport-box">50vh box</div>
+    <div class="small-viewport-box">50svh box</div>
+
+    <!-- Cheatsheet on vh and svh -->
+    <!--
+        ## Key Points on vh and svh ##
+        1. vh (Viewport Height): 
+           - Includes the full viewport, even hidden areas under browser UI.
+           - May cause layout issues on mobile devices where the UI changes dynamically.
+
+        2. svh (Small Viewport Height):
+           - Represents the visible part of the viewport, excluding browser UI.
+           - Ideal for ensuring layouts adapt better in dynamic mobile environments.
+
+        3. Fallback Handling:
+           - Use @supports for conditional CSS:
+             @supports (property: value) {
+                 /* CSS when the feature is supported */
+             }
+             @supports not (property: value) {
+                 /* CSS fallback */
+             }
+
+        4. Practical Example:
+           - Fallback to vh if svh is not supported:
+             body {
+                 width: 100vh;
+             }
+             @supports (width: 100svh) {
+                 body {
+                     width: 100svh;
+                 }
+             }
+
+        5. Browser Support:
+           - As of now, svh is not widely supported in older browsers (e.g., certain versions of Safari).
+           - Check browser compatibility before heavily relying on svh.
+
+        For more details, refer to MDN documentation or CanIUse.
+    -->
+</body>
+</html>

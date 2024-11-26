@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layers and Specificity Cheat Sheet</title>
+    <style>
+        /* Layer Definitions - Start */
+        
+        /* Base layer */
+        @layer base {
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                font-size: 2em;
+                color: black;
+            }
+            p {
+                color: #333;
+            }
+        }
+
+        /* Theme layer - Custom theme styling */
+        @layer theme {
+            body {
+                background-color: #f0f0f0; /* Apply a light background */
+            }
+            h1 {
+                color: darkblue; /* Change heading color in theme */
+            }
+        }
+
+        /* Overrides layer - A custom layer to override some base styles */
+        @layer overrides {
+            h1 {
+                font-size: 3em; /* Increase size of h1 in overrides layer */
+                font-weight: bold;
+            }
+            p {
+                color: darkgray; /* Override paragraph color */
+            }
+        }
+
+        /* Custom layer - Custom styles for specific elements */
+        @layer custom {
+            h2 {
+                color: darkred; /* Custom color for h2 */
+                font-size: 1.8em;
+            }
+            button {
+                background-color: green;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+        }
+
+        /* Layer Definitions - End */
+
+        /* Default Button Styling */
+        button {
+            background-color: blue; /* Default button color */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Styling for class-based selectors (higher specificity than tag-based selectors) */
+        .special-button {
+            background-color: red; /* Red button for special class */
+        }
+
+        /* Inline styles will override everything */
+        button[style] {
+            background-color: green !important; /* Inline styles will override all */
+            color: black !important; /* Inline styles always take precedence */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Layers and Specificity Cheat Sheet</h1>
+
+    <p>This is a simple paragraph with default styling.</p>
+    <p class="special">This paragraph is part of the theme layer and has the color darkgray from overrides.</p>
+
+    <div>
+        <h2>Heading 2 - Custom Layer</h2>
+        <p>This is a paragraph with custom color from the overrides layer.</p>
+    </div>
+
+    <div>
+        <button>Regular Button</button> <!-- Button without any class -->
+        <button class="special-button">Special Button</button> <!-- Button with special class -->
+        <button style="background-color: yellow; color: purple;">Inline Styled Button</button> <!-- Inline styled button -->
+    </div>
+
+    <p><b>Explanation:</b></p>
+    <ul>
+        <li><b>Base Layer</b>: Provides general styling to all elements. Font family is set, and basic paragraph colors are applied.</li>
+        <li><b>Theme Layer</b>: Overrides the background color of the body and changes the color of h1 headings to darkblue.</li>
+        <li><b>Overrides Layer</b>: Applies specific styles to h1 (larger and bold) and changes the paragraph text to darkgray.</li>
+        <li><b>Custom Layer</b>: Modifies h2 elements (color and size) and styles buttons with a green background and white text.</li>
+    </ul>
+
+    <h3>How CSS Layers Work:</h3>
+    <p>In this example, the base layer sets general styles, but the theme, overrides, and custom layers further modify these styles.</p>
+    <p><b>Inline styles</b> (set directly on the element with the `style` attribute) have the highest specificity, followed by class-based selectors, and then element selectors.</p>
+
+    <h3>Specificity Breakdown:</h3>
+    <p><b>Inline Styles:</b> Always have the highest specificity and override all other styles.</p>
+    <p><b>Class Selectors:</b> More specific than element selectors. The `.special-button` class changes the background color of that button.</p>
+    <p><b>Element Selectors:</b> The least specific. For example, the `<button>` tag is styled with blue background in the base layer, but it is overridden by both inline and class-based styles.</p>
+
+    <h4>Origins of CSS Styles:</h4>
+    <ul>
+        <li><b>User-Agent Styles:</b> Default styles applied by the browser. For example, browsers apply some default margins to elements.</li>
+        <li><b>User Styles:</b> Preferences set by the user in their browser (e.g., font size, contrast for accessibility).</li>
+        <li><b>Author Styles:</b> The styles you define in your CSS. These are typically the most specific unless overridden by inline styles.</li>
+    </ul>
+
+</body>
+</html>

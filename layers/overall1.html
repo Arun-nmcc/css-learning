@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layers and Specificity</title>
+    <style>
+        /* Define Layers */
+        
+        /* 1. Base Layer */
+        @layer base {
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                color: blue;  /* Color in base layer */
+                font-size: 2em;
+                text-align: center;
+            }
+
+            p {
+                color: black;
+                font-size: 1em;
+            }
+        }
+
+        /* 2. Theme Layer */
+        @layer theme {
+            h1 {
+                color: green;  /* Override color in theme layer */
+                font-size: 3em;  /* Override font size in theme layer */
+            }
+
+            p {
+                color: gray;  /* Override paragraph color */
+            }
+        }
+
+        /* 3. Override Layer */
+        @layer overrides {
+            h1 {
+                font-size: 4em;  /* Further increase font size in overrides layer */
+                font-weight: bold;
+            }
+
+            p {
+                color: darkgray; /* Change paragraph color in overrides layer */
+            }
+        }
+
+        /* 4. Custom Layer */
+        @layer custom {
+            h1 {
+                text-decoration: underline;  /* Add underline to h1 in custom layer */
+            }
+
+            p {
+                font-style: italic;  /* Make paragraphs italic in custom layer */
+            }
+        }
+
+        /* Global styles outside layers */
+        h1 {
+            color: red;  /* This will be overridden by layers */
+            font-size: 1.5em;
+        }
+
+        /* Button styling */
+        button {
+            background-color: blue; 
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Button inside a class */
+        .special-button {
+            background-color: red !important;  /* Use !important to force red background */
+        }
+
+        /* Override styles with !important */
+        button[style] {
+            background-color: green !important;  /* Inline style with !important */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Webpage</h1>
+    </header>
+
+    <p>This is a simple paragraph. Check how layers and specificity work!</p>
+    <p>Notice how the layers are applied in order.</p>
+
+    <button>Regular Button</button>
+    <button class="special-button">Special Button</button>
+    <button style="background-color: yellow;">Inline Styled Button</button>
+
+    <h2>Understanding CSS Layers and Specificity</h2>
+    <ul>
+        <li><b>Base Layer</b>: Contains the basic styles for the body and initial header properties.</li>
+        <li><b>Theme Layer</b>: Customizes the header's color and font size, and changes paragraph color.</li>
+        <li><b>Override Layer</b>: Increases the header font size further and modifies the paragraph color again.</li>
+        <li><b>Custom Layer</b>: Adds text decoration to `<h1>` and italicizes paragraphs.</li>
+    </ul>
+
+    <h3>Specificity Example:</h3>
+    <p><b>Global styles</b> applied to `h1` outside of any layer will be overridden by the layers because the layers define the order of style application.</p>
+    <p><b>Inline styles</b> have the highest specificity and will apply regardless of the layers (e.g., in the inline button).</p>
+
+    <h3>Important Keyword:</h3>
+    <p>The <code>!important</code> keyword is used to force the style to apply, overriding even other more specific selectors unless there's another `!important` style with higher specificity. For example, the `.special-button` class has a red background set with `!important` and will override the default button background color.</p>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display Block Example with Outline</title>
+    <style>
+        /* Styling for demonstration */
+        .block-example {
+            border: 2px solid blue; /* Border for individual elements */
+            margin-bottom: 10px; /* Adds spacing to better visualize stacking */
+            padding: 10px;
+            background-color: lightgray;
+        }
+
+        /* Universal outline to visualize all elements */
+        * {
+            outline: 1px dashed red; /* Adds an outline to all elements */
+        }
+    </style>
+</head>
+<body>
+    <!-- Default block elements -->
+    <!-- Paragraph: Block element by default -->
+    <p class="block-example">
+        This is a paragraph (<code>&lt;p&gt;</code>) element, which is a block element by default.
+        <!-- Why it stacks: Each block element starts on a new line and takes up the full width available. -->
+    </p>
+    
+    <!-- Heading: Block element by default -->
+    <h1 class="block-example">
+        This is a heading (<code>&lt;h1&gt;</code>) element, also a block element by default.
+        <!-- Why it stacks: Like all block elements, it occupies a new line and spans the full width. -->
+    </h1>
+    
+    <!-- Div: Block element by default -->
+    <div class="block-example">
+        This is a <code>&lt;div&gt;</code>, a generic container and a block element by default.
+        <!-- Why it stacks: Div elements are block elements, so they naturally start on a new line. -->
+    </div>
+
+    <!-- Span: Default inline element with "block" applied -->
+    <span class="block-example" style="display: block;">
+        This is a <code>&lt;span&gt;</code> element styled as block using CSS (<code>display: block;</code>).
+        <!-- Why it stacks: Changing an inline element to block makes it behave like other block elements. -->
+    </span>
+
+    <!-- Explanation -->
+    <p>
+        <strong>Why block elements stack:</strong> Block elements are designed to take up the entire width of their container, 
+        forcing any subsequent content to move to the next line. This is why they "stack" vertically by default.
+    </p>
+</body>
+</html>
