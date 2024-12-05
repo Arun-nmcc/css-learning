@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justify, Align Items, Align Content, Align Self</title>
+    <style>
+        /* Flex container styling */
+        .flex-container {
+            display: flex;             /* Makes this a flex container */
+            flex-wrap: wrap;           /* Allow items to wrap onto new lines */
+            gap: 20px;                 /* Adds space between the items */
+            padding: 20px;
+            background-color: #f5f5f5; /* Light background for the container */
+            height: 400px;             /* Fixed height for demonstration */
+            align-items: center;       /* Align all items to the center of the cross axis */
+        }
+
+        /* Flex item styling */
+        .flex-item {
+            background-color: #4CAF50;  /* Green background for the items */
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100px;   /* Fixed width for each item */
+            height: 100px;  /* Fixed height for each item */
+        }
+
+        /* Individual align-self overrides */
+        .align-self-start {
+            align-self: flex-start; /* Align this item to the start of the cross axis */
+        }
+
+        .align-self-end {
+            align-self: flex-end;   /* Align this item to the end of the cross axis */
+        }
+
+        .align-self-stretch {
+            align-self: stretch;    /* Stretch this item along the cross axis */
+            height: auto;           /* Allow it to stretch */
+        }
+
+        .align-self-center {
+            align-self: center;     /* Center this item along the cross axis */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Flex container -->
+    <div class="flex-container">
+        <!-- Default alignment -->
+        <div class="flex-item">Default</div>
+
+        <!-- Items with align-self overrides -->
+        <div class="flex-item align-self-start">Start</div>
+        <div class="flex-item align-self-end">End</div>
+        <div class="flex-item align-self-stretch">Stretch</div>
+        <div class="flex-item align-self-center">Center</div>
+    </div>
+
+    <!-- Summary of what has been done -->
+    <footer>
+        <p><strong>Summary:</strong></p>
+        <ul>
+            <li><strong>align-items:</strong> Aligns all items along the <code>cross axis</code> of the container. For example, <code>align-items: center;</code> centers all items vertically in a row layout.</li>
+            <li><strong>align-self:</strong> Aligns individual items along the <code>cross axis</code>, overriding <code>align-items</code> for that specific item.</li>
+            <li>The values for both <code>align-items</code> and <code>align-self</code> include:
+                <ul>
+                    <li><code>flex-start</code>: Aligns to the start of the cross axis.</li>
+                    <li><code>flex-end</code>: Aligns to the end of the cross axis.</li>
+                    <li><code>center</code>: Centers the items along the cross axis.</li>
+                    <li><code>stretch</code>: Stretches the items to fill the container (default).</li>
+                    <li><code>auto</code>: Uses the value of <code>align-items</code> from the container.</li>
+                </ul>
+            </li>
+        </ul>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Grow, Shrink, and Shorthand Examples</title>
+  <style>
+    /* General styling for the container */
+    .container {
+      display: flex; /* Enable flexbox layout */
+      width: 800px; /* Total container width */
+      border: 2px solid #333;
+      padding: 10px;
+      margin: 20px auto;
+      gap: 10px;
+    }
+
+    /* Flex-grow examples */
+    .grow-2 {
+      flex-grow: 2; /* Grows twice as fast as flex-grow: 1 */
+      background: #f2a65a;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .grow-1 {
+      flex-grow: 1; /* Grows at a normal rate */
+      background: #6a9fb5;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .grow-0 {
+      flex-grow: 0; /* Does not grow */
+      background: #96c582;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Flex-shrink examples */
+    .shrink-2 {
+      flex: 0 2 auto; /* Shrinks twice as much as flex-shrink: 1 */
+      background: #f45b69;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .shrink-1 {
+      flex: 0 1 auto; /* Default shrinking behavior */
+      background: #455c7b;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .shrink-0 {
+      flex: 0 0 auto; /* Does not shrink */
+      background: #d5c455;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Flex shorthand examples */
+    .flex-2 {
+      flex: 2; /* Equivalent to flex: 2 1 0 */
+      background: #9e765f;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .flex-1 {
+      flex: 1; /* Equivalent to flex: 1 1 0 */
+      background: #88d9e6;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .flex-none {
+      flex: none; /* Equivalent to flex: 0 0 auto */
+      background: #f7a5a2;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* Cheat sheet styling */
+    .cheat-sheet {
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px solid #333;
+      width: 90%;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      line-height: 1.6;
+    }
+
+    .cheat-sheet h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .cheat-sheet pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow: auto;
+      border: 1px dashed #aaa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Flex container with various examples -->
+  <div class="container">
+    <!-- Flex-grow examples -->
+    <div class="grow-2">flex-grow: 2</div>
+    <div class="grow-1">flex-grow: 1</div>
+    <div class="grow-0">flex-grow: 0</div>
+
+    <!-- Flex-shrink examples -->
+    <div class="shrink-2">flex-shrink: 2</div>
+    <div class="shrink-1">flex-shrink: 1</div>
+    <div class="shrink-0">flex-shrink: 0</div>
+
+    <!-- Flex shorthand examples -->
+    <div class="flex-2">flex: 2</div>
+    <div class="flex-1">flex: 1</div>
+    <div class="flex-none">flex: none</div>
+  </div>
+
+  <!-- Cheat Sheet for Flexbox -->
+  <div class="cheat-sheet">
+    <h2>Flexbox Cheat Sheet</h2>
+    <pre>
+flex: <flex-grow> <flex-shrink> <flex-basis>;
+
+- <flex-grow>: Defines how much the item will grow relative to others.
+  Default: 0 (no growth).
+  Examples:
+    flex-grow: 0;  /* Does not grow */
+    flex-grow: 1;  /* Grows proportionally */
+    flex-grow: 2;  /* Grows twice as fast as flex-grow: 1 */
+
+- <flex-shrink>: Defines how much the item will shrink relative to others.
+  Default: 1 (shrinks proportionally).
+  Examples:
+    flex-shrink: 0;  /* Does not shrink */
+    flex-shrink: 1;  /* Default shrinking behavior */
+    flex-shrink: 2;  /* Shrinks twice as much as flex-shrink: 1 */
+
+- <flex-basis>: Defines the initial size of the item before growth/shrink.
+  Default: auto (size based on content).
+  Examples:
+    flex-basis: 0;     /* No initial size */
+    flex-basis: 100px; /* Starts with 100px size */
+    flex-basis: auto;  /* Size based on content */
+
+Shorthand Examples:
+- flex: 1;      /* Equivalent to flex: 1 1 0 */
+- flex: 2;      /* Equivalent to flex: 2 1 0 */
+- flex: auto;   /* Equivalent to flex: 1 1 auto */
+- flex: none;   /* Equivalent to flex: 0 0 auto */
+- flex: 0 1 100px; /* Fixed size with shrinking */
+    </pre>
+  </div>
+</body>
+</html>

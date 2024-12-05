@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Basics: Grow, Shrink, and Gap</title>
+    <style>
+        /* Container with gap applied */
+        .flex-container {
+            display: flex;          /* Flex container to hold the items */
+            gap: 20px;              /* Space between flex items */
+            justify-content: flex-start;  /* Align items to the start of the container */
+            margin: 20px;
+            background-color: #f0f0f0; /* Light background for the container */
+            padding: 10px;
+        }
+
+        /* Flex items with different grow and shrink properties */
+        .flex-item {
+            background-color: #4CAF50;  /* Green background for the flex items */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        /* Flex item 1: Will grow and shrink */
+        .flex-item-1 {
+            flex-grow: 2;       /* This item will grow twice as much as the others */
+            flex-shrink: 1;     /* This item can shrink if necessary */
+            flex-basis: 100px;  /* Initial size of the item */
+        }
+
+        /* Flex item 2: Will grow, but shrink less */
+        .flex-item-2 {
+            flex-grow: 1;       /* This item will grow at a normal rate */
+            flex-shrink: 2;     /* This item can shrink twice as much as others */
+            flex-basis: 100px;  /* Initial size of the item */
+        }
+
+        /* Flex item 3: Will not grow, but can shrink */
+        .flex-item-3 {
+            flex-grow: 0;       /* This item will not grow */
+            flex-shrink: 1;     /* This item can shrink if needed */
+            flex-basis: 150px;  /* Initial size of the item */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Flex Container with gap between items -->
+    <div class="flex-container">
+        <div class="flex-item flex-item-1">Item 1 (Grow + Shrink)</div>
+        <div class="flex-item flex-item-2">Item 2 (Grow + Shrink)</div>
+        <div class="flex-item flex-item-3">Item 3 (Shrink only)</div>
+    </div>
+
+    <!-- Summary of what has been done -->
+    <footer>
+        <p><strong>Summary:</strong></p>
+        <ul>
+            <li>Created a flex container with <code>gap</code> property to add space between flex items.</li>
+            <li>Used <code>flex-grow</code> to make Item 1 grow more than the others and Item 2 grow normally.</li>
+            <li>Used <code>flex-shrink</code> to control how much items shrink when the container is smaller.</li>
+            <li>Applied different <code>flex-basis</code> values to set initial sizes for the items.</li>
+            <li>Explained that <code>gap</code> applies to the parent (container) while <code>flex-grow</code> and <code>flex-shrink</code> apply to the child (flex items).</li>
+        </ul>
+    </footer>
+
+</body>
+</html>

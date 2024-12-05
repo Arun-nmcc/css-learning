@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Index and Stacking Contexts</title>
+    <style>
+        /* ===== CSS Cheat Sheet ===== */
+        /* 
+        1. Z-Index Basics:
+           - Higher `z-index` = Front.
+           - Works only with `position` (relative, absolute, fixed, sticky).
+        
+        2. Stacking Context:
+           - Created by:
+             a. Position + z-index.
+             b. CSS properties: opacity < 1, transform, filter, perspective.
+        
+        3. Stacking Context Rules:
+           - Elements within a stacking context are isolated.
+           - A child cannot "escape" its parent's stacking context.
+
+        4. Default stacking order (without z-index):
+           - Background/Borders
+           - Negative z-index
+           - Inline/Block Content
+           - Positive z-index
+
+        ============================= */
+
+        /* Global stacking context */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Parent stacking context */
+        .parent {
+            position: relative; /* Creates stacking context */
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            z-index: 1; /* Low z-index in global context */
+            margin-bottom: 20px;
+            border: 2px solid navy;
+        }
+
+        /* Child box inside the parent */
+        .child {
+            position: relative; /* Positioned within parent */
+            width: 150px;
+            height: 150px;
+            background-color: coral;
+            z-index: 100; /* High within parent stacking context */
+            margin: auto;
+        }
+
+        /* Another child in the same stacking context */
+        .sibling {
+            position: absolute; /* Positioned within parent */
+            width: 80px;
+            height: 80px;
+            background-color: yellow;
+            top: 10px;
+            left: 10px;
+            z-index: 10; /* Lower than the `.child` */
+        }
+
+        /* Independent stacking context */
+        .outside {
+            position: relative; /* New stacking context in the global scope */
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+            z-index: 50; /* Appears above parent but not `.child` */
+        }
+
+        /* Another stacking context with transform */
+        .transformed {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background-color: lightcoral;
+            transform: rotate(5deg); /* Creates a stacking context */
+            z-index: 5; /* Independent in the global stacking context */
+            margin-top: 20px;
+            border: 2px dashed black;
+        }
+
+        /* Inner element within transformed stacking context */
+        .transformed-child {
+            position: absolute; /* Scoped to `.transformed` */
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            z-index: 999; /* High, but confined to `.transformed` */
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding Z-Index and Stacking Contexts</h1>
+
+    <p>
+        This page demonstrates the concept of <strong>z-index</strong> and <strong>stacking contexts</strong>. 
+        See the elements' behavior with varying z-index values and stacking rules.
+    </p>
+
+    <p>
+        <strong>Cheat Sheet:</strong> Z-index only works on positioned elements 
+        (<code>relative, absolute, fixed, sticky</code>). A stacking context isolates its 
+        children, so even a high z-index within the context cannot escape its bounds.
+    </p>
+
+    <!-- Parent stacking context -->
+    <div class="parent">
+        Parent Box
+        <!-- Child in parent stacking context -->
+        <div class="child">Child Box</div>
+        <!-- Another child -->
+        <div class="sibling">Sibling Box</div>
+    </div>
+
+    <!-- Box outside the parent stacking context -->
+    <div class="outside">Outside Box</div>
+
+    <!-- Transformed stacking context -->
+    <div class="transformed">
+        Transformed Box
+        <!-- High z-index but confined to transformed stacking context -->
+        <div class="transformed-child">Transformed Child</div>
+    </div>
+
+    <p>
+        Experiment with changing <code>z-index</code> values in the code. Observe how stacking contexts affect the 
+        behavior of child elements and how isolated contexts prevent z-index values from leaking.
+    </p>
+</body>
+</html>
+

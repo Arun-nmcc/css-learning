@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Box-Sizing Example</title>
+    <style>
+        /* Flexbox Basics */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex; /* Establish a flex container */
+            flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+            justify-content: space-between; /* Distribute space evenly between items */
+            align-items: center; /* Align items vertically (centered) */
+            gap: 10px; /* Adds space between items */
+            margin-bottom: 30px; /* Space between examples */
+        }
+
+        /* Default behavior: content-box (default) */
+        .content-box-container .item {
+            flex: 1; /* All items grow/shrink equally */
+            padding: 20px; /* Adds padding inside the item */
+            background-color: lightblue;
+            border: 2px solid blue;
+            box-sizing: content-box; /* Default behavior */
+        }
+
+        /* Correct behavior: border-box */
+        .border-box-container .item {
+            flex: 1; /* All items grow/shrink equally */
+            padding: 20px; /* Adds padding inside the item */
+            background-color: lightcoral;
+            border: 2px solid red;
+            box-sizing: border-box; /* Ensures padding is included in width */
+        }
+
+        /* Middle item for both containers */
+        .container .item:nth-child(2) {
+            padding: 40px; /* Larger padding to demonstrate the issue */
+        }
+
+        /* Cheat Sheet Notes */
+        .cheat-sheet {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .cheat-sheet h3 {
+            margin: 0 0 10px;
+        }
+
+        .cheat-sheet ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Flexbox and Box-Sizing Example</h1>
+
+<h2>Example 1: Default (Content-Box)</h2>
+<div class="container content-box-container">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2 (More Padding)</div>
+    <div class="item">Item 3</div>
+</div>
+
+<h2>Example 2: With Border-Box</h2>
+<div class="container border-box-container">
+    <div class="item">Item 1</div>
+    <div class="item">Item 2 (More Padding)</div>
+    <div class="item">Item 3</div>
+</div>
+
+<div class="cheat-sheet">
+    <h3>Flexbox and Box-Sizing Cheat Sheet</h3>
+    <ul>
+        <li><b>display: flex</b>: Defines a flex container.</li>
+        <li><b>flex: 1</b>: Items take equal space (grow/shrink).</li>
+        <li><b>box-sizing: content-box</b> (default): Padding and borders <i>add</i> to the element's width/height.</li>
+        <li><b>box-sizing: border-box</b>: Padding and borders are <i>included</i> in the element's width/height.</li>
+        <li><b>flex-wrap</b>: Allows items to wrap to the next line.</li>
+        <li><b>justify-content</b>: Controls horizontal alignment (e.g., space-between, center).</li>
+        <li><b>align-items</b>: Controls vertical alignment (e.g., center, flex-start).</li>
+        <li><b>nth-child()</b>: Targets specific child elements for styling.</li>
+    </ul>
+</div>
+</body>
+</html>

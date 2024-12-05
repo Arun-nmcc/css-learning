@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Flexbox</title>
+    <style>
+        /* Outer Flex Container */
+        .outer-container {
+            display: flex;             /* Makes this a flex container */
+            flex-direction: column;    /* Arrange items vertically */
+            align-items: center;       /* Center items along the cross axis */
+            gap: 20px;                 /* Space between items */
+            padding: 20px;
+            background-color: #f0f0f0; /* Light gray background */
+            min-height: 100vh;         /* Full viewport height */
+        }
+
+        /* Inner Flex Container */
+        .inner-container {
+            display: flex;             /* Makes this a flex container */
+            flex-direction: row;       /* Arrange items horizontally */
+            justify-content: space-between; /* Distribute space between items */
+            align-items: center;       /* Center items along the cross axis */
+            background-color: #4CAF50; /* Green background */
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;               /* Full width of the parent */
+            max-width: 800px;          /* Maximum width constraint */
+        }
+
+        /* Flex Items */
+        .outer-item {
+            background-color: #2196F3; /* Blue background */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .inner-item {
+            background-color: #FFC107; /* Yellow background */
+            color: black;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 80px;              /* Fixed width for inner items */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Outer Flex Container -->
+    <div class="outer-container">
+        <div class="outer-item">Outer Item 1</div>
+
+        <!-- Inner Flex Container (Nested) -->
+        <div class="inner-container">
+            <div class="inner-item">Inner 1</div>
+            <div class="inner-item">Inner 2</div>
+            <div class="inner-item">Inner 3</div>
+        </div>
+
+        <div class="outer-item">Outer Item 2</div>
+    </div>
+
+</body>
+</html>

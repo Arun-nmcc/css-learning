@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Navigation</title>
+    <style>
+        /* 1. Apply Flexbox to the nav container */
+        nav {
+            display: flex; /* Make the nav container a flex container */
+            justify-content: space-around; /* Distribute items evenly with space around */
+            align-items: center; /* Align items vertically at the center */
+            background-color: #333; /* Set background color of nav */
+            padding: 10px;
+        }
+
+        /* 2. Style the unordered list (ul) inside nav */
+        nav ul {
+            list-style: none; /* Remove default list styles */
+            display: flex; /* Make the ul a flex container */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 3. Style each list item (li) */
+        nav ul li {
+            padding: 10px 20px; /* Add padding to each list item */
+        }
+
+        /* 4. Style links inside list items */
+        nav ul li a {
+            color: white; /* Set link text color */
+            text-decoration: none; /* Remove underline from links */
+            font-size: 18px;
+        }
+
+        /* 5. Add a media query to demonstrate flex-wrap in action */
+        @media (max-width: 600px) {
+            /* 6. Enable flex-wrap to make nav items wrap on smaller screens */
+            nav ul {
+                flex-wrap: wrap; /* Allow list items to wrap to the next line */
+                justify-content: center; /* Center the wrapped items */
+            }
+
+            /* 7. Optional: Adjust padding for smaller screens */
+            nav ul li {
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 8. Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Summary of what has been done -->
+    <footer>
+        <p><strong>Summary:</strong></p>
+        <ul>
+            <li>Applied Flexbox to the <code>&lt;nav&gt;</code> container to arrange its child elements in a row.</li>
+            <li>Used <code>justify-content: space-around;</code> to distribute the items evenly and <code>align-items: center;</code> to center them vertically.</li>
+            <li>Styled the unordered list (<code>&lt;ul&gt;</code>) and list items (<code>&lt;li&gt;</code>) for a clean and responsive layout.</li>
+            <li>Added <code>flex-wrap: wrap;</code> inside a media query to ensure that the nav items wrap to the next line when the screen width is less than 600px.</li>
+            <li>Ensured the navigation bar is flexible and adapts to different screen sizes, making it more responsive.</li>
+        </ul>
+    </footer>
+
+</body>
+</html>

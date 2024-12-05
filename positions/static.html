@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position: Static</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+        }
+
+        .container {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        /* Static element (default positioning) */
+        .static-box {
+            position: static; /* Default behavior */
+            background-color: lightblue;
+            width: 100px;
+            height: 100px;
+            left: 50px; /* Ignored */
+            bottom: 50px; /* Ignored */
+            top: 50px; /* Ignored */
+            right: 50px; /* Ignored */
+            margin: 10px;
+        }
+
+        /* Relative element (for comparison) */
+        .relative-box {
+            position: relative;
+            background-color: lightgreen;
+            width: 100px;
+            height: 100px;
+            left: 50px; /* Applied */
+            bottom: 10px; /* Applied */
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding Position: Static</h1>
+    <p>
+        By default, elements are <strong>static</strong>. This means they stay in the normal document flow, and any 
+        properties like <code>top</code>, <code>left</code>, <code>bottom</code>, or <code>right</code> are ignored.
+    </p>
+
+    <div class="container">
+        <h2>Static Box</h2>
+        <p>This box is <code>position: static</code>. Any <code>top</code>, <code>left</code>, or other offsets will be ignored.</p>
+        <div class="static-box">Static</div>
+    </div>
+
+    <div class="container">
+        <h2>Relative Box (Comparison)</h2>
+        <p>This box is <code>position: relative</code>. Notice how it responds to <code>top</code>, <code>left</code>, and other offsets.</p>
+        <div class="relative-box">Relative</div>
+    </div>
+
+    <p>
+        Experiment by changing the positioning of the static box in the code to <code>relative</code>, 
+        <code>absolute</code>, or <code>fixed</code> to observe the differences.
+    </p>
+</body>
+</html>
+

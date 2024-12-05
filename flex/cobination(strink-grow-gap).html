@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Final Container: Grow, Shrink, and Gap</title>
+    <style>
+        /* Final container with gap and responsive flex items */
+        .final-container {
+            display: flex;        /* Flex container to hold the items */
+            gap: 20px;            /* Space between flex items */
+            justify-content: space-between; /* Distribute items with space between */
+            padding: 20px;
+            background-color: #e0e0e0; /* Light grey background */
+            flex-wrap: wrap;      /* Allow items to wrap when necessary */
+        }
+
+        /* Flex items with different grow and shrink properties */
+        .final-item {
+            background-color: #007BFF;  /* Blue background for the flex items */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 5px;
+            flex-basis: 150px;  /* Initial size of the item */
+        }
+
+        /* Item 1: Grow and shrink */
+        .item-1 {
+            flex-grow: 2;   /* This item will grow twice as much as others */
+            flex-shrink: 1; /* This item can shrink */
+        }
+
+        /* Item 2: Only grow */
+        .item-2 {
+            flex-grow: 1;   /* This item will grow at a normal rate */
+            flex-shrink: 0; /* This item won't shrink */
+        }
+
+        /* Item 3: Only shrink */
+        .item-3 {
+            flex-grow: 0;   /* This item won't grow */
+            flex-shrink: 2; /* This item can shrink twice as much as others */
+        }
+
+        /* Item 4: Neither grow nor shrink */
+        .item-4 {
+            flex-grow: 0;   /* This item won't grow */
+            flex-shrink: 0; /* This item won't shrink */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Final Flex Container -->
+    <div class="final-container">
+        <div class="final-item item-1">Item 1 (Grow + Shrink)</div>
+        <div class="final-item item-2">Item 2 (Grow only)</div>
+        <div class="final-item item-3">Item 3 (Shrink only)</div>
+        <div class="final-item item-4">Item 4 (Neither Grow nor Shrink)</div>
+    </div>
+
+    <!-- Summary of what has been done -->
+    <footer>
+        <p><strong>Summary:</strong></p>
+        <ul>
+            <li>Created a final container with <code>gap</code> to space the items evenly.</li>
+            <li>Used <code>flex-grow</code> to make some items grow more than others when space is available.</li>
+            <li>Used <code>flex-shrink</code> to make items shrink when necessary.</li>
+            <li>Used <code>flex-wrap</code> to allow items to wrap into new lines if needed.</li>
+            <li>Applied <code>flex-basis</code> to set the initial size of each item before any growing or shrinking.</li>
+        </ul>
+    </footer>
+
+</body>
+</html>

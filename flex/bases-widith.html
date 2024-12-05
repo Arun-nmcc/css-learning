@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Width vs Flex-basis</title>
+    <style>
+        /* Flex container to hold the items */
+        .flex-container {
+            display: flex;         /* Make the parent a flex container */
+            gap: 10px;             /* Space between the items */
+            justify-content: space-between; /* Distribute items evenly */
+            padding: 20px;
+            background-color: #f5f5f5; /* Light background for the container */
+        }
+
+        /* Flex item styling */
+        .flex-item {
+            background-color: #4CAF50; /* Green background for the items */
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            padding: 20px;
+            border-radius: 5px;
+            /* Same flex-basis value for demonstration */
+            flex-grow: 1;            /* Make items grow */
+            flex-shrink: 1;          /* Allow items to shrink */
+        }
+
+        /* Item with fixed width */
+        .item-width {
+            width: 150px; /* Set fixed width */
+        }
+
+        /* Item with flex-basis */
+        .item-flex-basis {
+            flex-basis: 150px; /* Set initial size using flex-basis */
+        }
+
+        /* Item with width and flex-basis combined */
+        .item-combined {
+            flex-basis: 150px; /* flex-basis for initial size */
+            width: 200px;      /* fixed width will override flex-basis */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Flex container -->
+    <div class="flex-container">
+        <!-- Item with fixed width -->
+        <div class="flex-item item-width">Width: 150px</div>
+
+        <!-- Item with flex-basis -->
+        <div class="flex-item item-flex-basis">Flex-basis: 150px</div>
+
+        <!-- Item with both width and flex-basis -->
+        <div class="flex-item item-combined">Width: 200px, Flex-basis: 150px</div>
+    </div>
+
+    <!-- Summary of what has been done -->
+    <footer>
+        <p><strong>Summary:</strong></p>
+        <ul>
+            <li><strong>Width:</strong> Sets the final width of the element, overriding any Flexbox sizing behavior. It is a fixed size, regardless of Flexbox properties.</li>
+            <li><strong>Flex-basis:</strong> Sets the initial size of the item in a flex container before any growing or shrinking occurs. It acts as the starting point for flex calculations.</li>
+            <li>In the case of combined usage (e.g., width and flex-basis), <code>width</code> will take precedence and override the <code>flex-basis</code> in determining the final size.</li>
+        </ul>
+    </footer>
+
+</body>
+</html>
