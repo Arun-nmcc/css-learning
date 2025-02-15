@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position: Absolute Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        .relative-parent {
+            position: relative; /* This parent sets the context for absolute positioning */
+            border: 2px dashed #87cefa; /* Light blue */
+            padding: 20px;
+        }
+
+        .absolute-child {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ffa07a; /* Light salmon */
+            padding: 15px;
+            border: 1px solid #cd5c5c; /* Indian red */
+            color: #000;
+        }
+
+        .viewport-absolute {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background-color: #90ee90; /* Light green */
+            padding: 15px;
+            border: 1px solid #2e8b57; /* Sea green */
+        }
+
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #6c757d;
+        }
+
+        .note {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Positioning: Absolute</h1>
+
+    <div class="container">
+        <p>The container below demonstrates <code>position: absolute</code>. Notice how the behavior changes based on the parent's positioning context.</p>
+
+        <div class="relative-parent">
+            <p><strong>Parent:</strong> I am a <code>position: relative</code> container. My child uses <code>position: absolute</code>, so its position is relative to me.</p>
+            <div class="absolute-child">
+                <p><strong>Child:</strong> I am <code>position: absolute</code>. My <code>top: 10px</code> and <code>left: 10px</code> are relative to my parent.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <p><strong>Child with no positioned parent:</strong> The box below is <code>position: absolute</code> with no relative parent, so it is positioned relative to the viewport.</p>
+        <div class="viewport-absolute">
+            <p>I am positioned relative to the viewport because no parent has <code>position: relative</code>.</p>
+        </div>
+    </div>
+
+    <div class="info">
+        <h3>Key Points:</h3>
+        <ul>
+            <li><code>position: absolute</code> removes the element from the document flow. Other elements act as if it does not exist.</li>
+            <li>If no parent has a positioning context (<code>position: relative/absolute/fixed/sticky</code>), it positions relative to the viewport.</li>
+            <li>If a parent has <code>position: relative</code>, the absolute element positions relative to that parent.</li>
+            <li>Absolute elements are not block-level by default; they shrink-wrap their content.</li>
+        </ul>
+        <p class="note">Tip: Use <code>position: absolute</code> for precise positioning inside a relatively positioned container.</p>
+    </div>
+</body>
+</html>

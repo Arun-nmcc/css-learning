@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position: Relative Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            border: 2px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            position: relative; /* This container serves as a reference for stacking contexts */
+        }
+
+        .box1 {
+            position: relative;
+            background-color: #87cefa; /* Light blue */
+            padding: 20px;
+            border: 2px solid #4682b4; /* Steel blue */
+            top: 20px; /* Moves 20px down */
+            left: 20px; /* Moves 20px to the right */
+            z-index: 1; /* Creates stacking context for this element */
+        }
+
+        .box2 {
+            position: relative;
+            background-color: #ffa07a; /* Light salmon */
+            padding: 20px;
+            border: 2px solid #cd5c5c; /* Indian red */
+            top: -20px; /* Moves 20px up */
+            left: 40px; /* Moves 40px to the right */
+            z-index: 2; /* Higher stacking order than .box1 */
+        }
+
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #6c757d;
+        }
+
+        .note {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Positioning: Relative</h1>
+
+    <div class="container">
+        <p>The container itself has <code>position: relative</code>. Each box inside demonstrates the behavior of <code>position: relative</code>.</p>
+
+        <div class="box1">
+            <p><strong>Box 1:</strong> I have <code>position: relative</code> with <code>top: 20px</code> and <code>left: 20px</code>. I reserve space in my original position but appear offset. Notice I overlap with Box 2!</p>
+        </div>
+
+        <div class="box2">
+            <p><strong>Box 2:</strong> I also have <code>position: relative</code> with <code>top: -20px</code> and <code>left: 40px</code>. I overlap Box 1 because of stacking context and a higher <code>z-index</code>.</p>
+        </div>
+    </div>
+
+    <div class="info">
+        <h3>Key Points:</h3>
+        <ul>
+            <li><code>position: relative</code> allows the element to maintain its original space but appear shifted using <code>top</code>, <code>left</code>, <code>right</code>, or <code>bottom</code>.</li>
+            <li>This creates a **stacking context**, meaning elements can overlap each other using <code>z-index</code>.</li>
+            <li>Other elements are not aware of the visual offset; they treat the element as if it were in its original position.</li>
+        </ul>
+        <p class="note">Tip: Use <code>position: relative</code> when you need an element offset but still want it to interact with other elements in the document flow.</p>
+    </div>
+</body>
+</html>
